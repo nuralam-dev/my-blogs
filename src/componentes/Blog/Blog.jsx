@@ -12,7 +12,7 @@ const Blog = ({ blog, handleBookMark }) => {
         <div className="flex justify-around items-center">
           <h3>{blog.author}</h3>
           <img className="w-16" src={blog.author_img} alt="" />
-          <button onClick={() => handleBookMark(blog.title)}>
+          <button onClick={() => handleBookMark(blog)}>
             <FaBookmark size={25} />
           </button>
         </div>
