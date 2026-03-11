@@ -2,7 +2,7 @@ import { FaBookmark } from "react-icons/fa6";
 
 const Blog = ({ blog, handleBookMark }) => {
   // console.log(handleBookMark)
-  // console.log(blog);
+  console.log(blog);
   return (
     <div>
       <div className="card bg-base-100 w-96 shadow-sm">
