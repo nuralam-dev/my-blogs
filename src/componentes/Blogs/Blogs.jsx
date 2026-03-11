@@ -3,7 +3,7 @@ import Blog from "../Blog/Blog";
 
 
 
-const Blogs = () => {
+const Blogs = ({handleBookMark}) => {
 const [blogs, setBlogs]= useState([])
 
   useEffect(() => {
@@ -12,13 +12,13 @@ const [blogs, setBlogs]= useState([])
       .then(data => setBlogs(data));
   }, []);
 
-  console.log(blogs)
+  // console.log(blogs)
 
   return <div>
     <h1 className="text-3xl"> Total : {blogs.length}</h1>
     <div className="all-blog grid grid-cols-2">
       {
-        blogs.map((blog)=> <Blog blog={blog}></Blog>)
+        blogs.map((blog)=> <Blog key={blog.id} blog={blog} handleBookMark={handleBookMark}></Blog>)
       }
     </div>
   </div>;

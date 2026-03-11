@@ -1,8 +1,8 @@
 import { FaBookmark } from "react-icons/fa6";
 
-
-const Blog = ({ blog }) => {
-  console.log(blog);
+const Blog = ({ blog, handleBookMark }) => {
+  // console.log(handleBookMark)
+  // console.log(blog);
   return (
     <div>
       <div className="card bg-base-100 w-96 shadow-sm">
@@ -12,15 +12,16 @@ const Blog = ({ blog }) => {
         <div className="flex justify-around items-center">
           <h3>{blog.author}</h3>
           <img className="w-16" src={blog.author_img} alt="" />
-          <FaBookmark size={25}/>
-
+          <button onClick={() => handleBookMark(blog.title)}>
+            <FaBookmark size={25} />
+          </button>
         </div>
         <div className="card-body">
           <h2 className="card-title">{blog.title}</h2>
           <div className="flex">
-            {
-            blog.hashtags.map((has)=><p>{has}</p>)
-          }
+            {blog.hashtags.map((has) => (
+              <p>{has}</p>
+            ))}
           </div>
           <p>
             A card component has a figure, a body part, and inside body there
