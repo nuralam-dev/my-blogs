@@ -1,8 +1,8 @@
 import { FaBookmark } from "react-icons/fa6";
 
-const Blog = ({ blog, handleBookMark }) => {
+const Blog = ({ blog, handleBookMark,handleMarksAsRead}) => {
   // console.log(handleBookMark)
-  console.log(blog);
+  // console.log(blog);
   return (
     <div>
       <div className="card bg-base-100 w-96 shadow-sm">
@@ -28,8 +28,8 @@ const Blog = ({ blog, handleBookMark }) => {
             are title and actions parts
           </p>
           <div className="card-actions justify-between flex">
-            <button className="btn">mark as read</button>
-            <button className="btn">add bookmark</button>
+            <button onClick={()=>handleMarksAsRead(blog.reading_time)} className="btn">mark as read</button>
+            
           </div>
         </div>
       </div>
