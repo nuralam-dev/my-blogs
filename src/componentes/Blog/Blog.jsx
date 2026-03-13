@@ -20,7 +20,7 @@ const Blog = ({ blog, handleBookMark,handleMarksAsRead}) => {
           <h2 className="card-title">{blog.title}</h2>
           <div className="flex">
             {blog.hashtags.map((has) => (
-              <p>{has}</p>
+              <p key={has}>{has}</p>
             ))}
           </div>
           <p>
@@ -28,7 +28,7 @@ const Blog = ({ blog, handleBookMark,handleMarksAsRead}) => {
             are title and actions parts
           </p>
           <div className="card-actions justify-between flex">
-            <button onClick={()=>handleMarksAsRead(blog.reading_time)} className="btn">mark as read</button>
+            <button onClick={()=>handleMarksAsRead(blog.reading_time,blog.id)} className="btn">mark as read</button>
             
           </div>
         </div>

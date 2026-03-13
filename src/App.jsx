@@ -12,11 +12,16 @@ const [readingCount, setReadingCount]=useState(0)
     
   };
 
-  const handleMarksAsRead =(time)=>{
+  const handleMarksAsRead =(time, id)=>{
       const newTime=readingCount+time;
       setReadingCount(newTime);
+      handleRemoveFromBookMark(id)
+      // console.log(id)
     };
-  
+  const handleRemoveFromBookMark=(id)=>{
+const remainingBookMark=bookMarked.filter((mark)=>mark.id !==id);
+setBookMarked(remainingBookMark)
+  }
 
 
   return (
@@ -29,9 +34,9 @@ const [readingCount, setReadingCount]=useState(0)
         <div className="right-container w-[30%] text-center">
           <h1>Reading Time : {readingCount}</h1>
           <h1>Bookmarked Count : {bookMarked.length}</h1>
-          <div className="border backdrop-blur-3xl">
+          <div>
             {
-            bookMarked.map((marked)=><p>{marked.title}</p>)
+            bookMarked.map((marked)=><p className="key={blog.id} border backdrop-blur-3xl mt-5 bg-amber-100 rounded-sm">{marked.title}</p>)
           }
           </div>
         </div>
